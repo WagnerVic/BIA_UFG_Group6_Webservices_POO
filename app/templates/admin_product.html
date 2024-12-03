@@ -1,0 +1,60 @@
+{% extends "base-admin.html" %}
+
+{% block title %}Editar Produto{% endblock %}
+
+{% block content %}
+<main class="catalog">
+    <h1>Editar Produto</h1>
+    
+    <form method="POST">
+        <label for="name">Nome do Produto:</label>
+        <input type="text" id="name" name="name" value="{{ product.name }}" required>
+    
+        <label for="description">Descrição:</label>
+        <textarea id="description" name="description" required>{{ product.description }}</textarea>
+    
+        <label for="price">Preço:</label>
+        <input type="number" id="price" name="price" value="{{ product.price }}" required step="0.01">
+    
+        <label for="sizes">Tamanhos:</label>
+        <div>
+            {% for size in ['P', 'M', 'G', 'GG'] %}
+                <input type="checkbox" id="size_{{ size }}" name="sizes" value="{{ size }}" 
+                {% if size in product.sizes %}checked{% endif %}>
+                <label for="size_{{ size }}">{{ size }}</label>
+            {% endfor %}
+            <input type="checkbox" id="size_other" name="size_other" value="other" 
+                {% if 'other' in product.sizes %}checked{% endif %} onchange="toggleOtherSizeInput()">
+            <label for="size_other">Outro</label>
+            <input type="text" id="other_size" name="other_size" placeholder="Digite outro tamanho" 
+                value="{% if 'other' in product.sizes %}{{ product.sizes[-1] }}{% endif %}" style="display: none;">
+        </div>
+    
+        <button type="submit" class="edit-button">Atualizar Produto</button>
+    </form>
+
+    <form action="{{ url_for('admin_product', product_id=product.id) }}" method="POST" style="margin-top: 20px;">
+        <button type="submit" name="delete" class="delete-button">Excluir Produto</button>
+    </form>
+</main>
+
+<script>
+    // Função para alternar a exibição do campo de texto "Outro" baseado no checkbox
+    function toggleOtherSizeInput() {
+        var otherSizeCheckbox = document.getElementById("size_other");
+        var otherSizeInput = document.getElementById("other_size");
+        
+        // Se o checkbox "Outro" estiver marcado, exibe o campo de texto
+        if (otherSizeCheckbox.checked) {
+            otherSizeInput.style.display = "inline";
+        } else {
+            otherSizeInput.style.display = "none";
+        }
+    }
+    
+    // Chama a função para ajustar a visibilidade do campo de texto quando a página é carregada
+    window.onload = function() {
+        toggleOtherSizeInput();
+    };
+</script>
+{% endblock %}

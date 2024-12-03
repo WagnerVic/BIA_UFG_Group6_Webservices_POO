@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Empresa Confiável{% endblock %}</title>
-    <link rel="stylesheet" href="static/styles/base.css">
-    <link rel="stylesheet" href="static/styles/login.css">
-    <link rel="stylesheet" href="static/styles/register.css">
-    <link rel="stylesheet" href="static/styles/darkmode.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/register.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/darkmode.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/cart.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/product.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/catalogue.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/admin_product.css') }}">
+
     <!-- Include Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -15,10 +20,11 @@
 
     <header class="header">
         <div class="site-title">
-            <a href="/">Empresa Confiável</a>
+            <a href="/admin">Empresa Confiável</a>
         </div>
-        <button class="catalogue-button">Catalogue</button>
-        <!-- Search Bar with Magnifying Glass Icon -->
+        <a href="/admin/catalogo">
+            <button class="catalogue-button">Catalogue</button>
+        </a>        <!-- Search Bar with Magnifying Glass Icon -->
         <div class="search-bar">
             <input type="text" autocomplete="off" id="searchInput" placeholder="Search...">
             <!-- Magnifying glass icon on the right -->
@@ -32,8 +38,6 @@
         </div>
   
         <div class="header-buttons">
-            <!-- Favorites button with heart icon -->
-            <button class="Products">Products</button>
             <!-- Profile button with user icon -->
             <button class="profile">
                 <i class="fa fa-user" style="font-size:24px"></i>
@@ -53,7 +57,7 @@
 
     <div class="sidebar">
         <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="/admin">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Contact</a></li>

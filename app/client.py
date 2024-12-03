@@ -3,9 +3,18 @@ import json
 import os
 from app import app
 
+def save_products(products):
+    with open('app/products.json', 'w', encoding='utf-8') as f:
+        json.dump(products, f, ensure_ascii=False, indent=4)
+
+def load_products():
+    if os.path.exists('app/products.json'):
+        with open('app/products.json', 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return []
+
 # Product data for demonstration (static)
-with open('app/products.json', 'r', encoding='utf-8') as file:
-    PRODUCTS = json.load(file)
+PRODUCTS = load_products()
 
 # File path for user data
 USERS_FILE = 'app/users.json'
@@ -160,3 +169,95 @@ def add_to_cart(product_id):
 @app.route("/catalogo")
 def catalogo():
     return render_template('catalogue.html', PRODUCTS=PRODUCTS)
+
+@app.route("/admin/catalogo")
+def catalogo_admin():
+    return render_template('catalogue-admin.html', PRODUCTS=PRODUCTS)
+
+@app.route("/admin/product/<int:product_id>", methods=["GET", "POST"])
+def admin_product(product_id):
+    # Find the product by ID
+    product = next((p for p in PRODUCTS if p['id'] == product_id), None)
+    if not product:
+        return redirect(url_for('catalogo_admin'))  # Redirect if product not found
+
+    if request.method == 'POST':
+        # If the delete button is pressed, delete the product
+        if 'delete' in request.form:
+            PRODUCTS.remove(product)
+            # Save updated products list
+            save_products(PRODUCTS)
+            return redirect(url_for('catalogo_admin'))  # Redirect to admin catalog page
+        
+        # Otherwise, handle the update of the product
+        product['name'] = request.form['name']
+        product['description'] = request.form['description']
+        
+        # Convert price to float before updating
+        try:
+            product['price'] = float(request.form['price'])  # Ensure price is a float
+        except ValueError:
+            return render_template('admin_product.html', product=product, error="Preço inválido, deve ser um número.")
+        
+        product['sizes'] = request.form.getlist('sizes')  # Assuming sizes are selected as checkboxes or multiple selects
+
+        # If there's an 'other' size, save it
+        other_size = request.form.get('other_size')
+        if other_size:
+            product['sizes'].append(other_size)
+
+        # Save updated products list
+        save_products(PRODUCTS)
+        
+        # Redirect to stay on the same page to see updated info
+        return redirect(url_for('admin_product', product_id=product_id))
+
+    # Render template for editing product
+    return render_template('admin_product.html', product=product)
+
+@app.route("/admin/product/add", methods=["GET", "POST"])
+def add_product():
+    if request.method == 'POST':
+        # Extract the form data
+        name = request.form['name']
+        description = request.form['description']
+        
+        try:
+            price = float(request.form['price'])  # Ensure price is a float
+        except ValueError:
+            return render_template('add_product.html', error="Preço inválido, deve ser um número.")
+        
+        sizes = request.form.getlist('sizes')  # Get list of sizes (P, M, G, GG, etc.)
+        
+        # If there's an 'other' size, add it
+        other_size = request.form.get('other_size')
+        if other_size:
+            sizes.append(other_size)
+        
+        # Handle the image upload
+        image = request.files['image']
+        image_filename = None
+        if image:
+            image_filename = os.path.join('app/static/images', image.filename)  # You can change the path if needed
+            image.save(image_filename)
+
+        # Create a new product ID (simple incrementing based on the current highest id)
+        product_id = max([p['id'] for p in PRODUCTS], default=0) + 1
+
+        # Create a new product object
+        new_product = {
+            'id': product_id,
+            'name': name,
+            'description': description,
+            'price': price,
+            'sizes': sizes,
+            'image': image_filename
+        }
+
+        # Add the new product to the PRODUCTS list and save it
+        PRODUCTS.append(new_product)
+        save_products(PRODUCTS)
+
+        return redirect(url_for('catalogo_admin'))  # Redirect to the admin catalog page
+
+    return render_template('add_product.html')  # Render the form to add a product

@@ -1,0 +1,166 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Main Container */
+.product-page {
+    background-color: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.3s ease;
+}
+
+/* Edit Product Container */
+.product-container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 1000px;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Form Input Styles */
+input[type="text"], input[type="number"], textarea, select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, textarea:focus, select:focus {
+    outline-color: #dd70cb;
+    border-color: #dd70cb;
+}
+
+/* Buttons */
+button {
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+/* Update Button */
+.edit-button {
+    background-color: #dd70cb;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #c31c9b;
+}
+
+/* Delete Button */
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #e53935;
+}
+
+/* Form Label Styling */
+label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Section for Sizes */
+.product-size {
+    margin-bottom: 20px;
+}
+
+.product-size label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.product-size select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+/* Page Title */
+.product-page h1 {
+    text-align: center;
+    color: #ff00a1;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .product-page h1 {
+        font-size: 24px;
+    }
+
+    .product-title {
+        font-size: 24px;
+    }
+
+    .product-description {
+        font-size: 14px;
+    }
+
+    .product-price {
+        font-size: 20px;
+    }
+
+    .product-quantity input {
+        font-size: 14px;
+    }
+
+    .add-to-cart-button {
+        font-size: 16px;
+    }
+}
