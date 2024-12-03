@@ -1,0 +1,123 @@
+/* Geral */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: rgba(195, 28, 155, 0.9);
+}
+
+/* Promo Section */
+.promo-section {
+    padding: 40px 20px;
+    text-align: center;
+    background: rgba(195, 28, 155, 0.1); /* Fundo destacado */
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 90%;
+}
+
+.promo-section .section-title {
+    font-size: 36px; /* Fonte maior */
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: rgba(195, 28, 155, 0.9);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.carousel img {
+    max-width: 90%; /* Ligeiramente maior */
+    height: auto;
+    margin: 10px auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Models Section */
+.models-section {
+    padding: 40px 20px;
+    background: rgba(195, 28, 155, 0.1); /* Fundo destacado */
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 90%;
+}
+
+.models-section .section-title {
+    font-size: 36px; /* Fonte maior */
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: rgba(195, 28, 155, 0.9);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.filter-menu {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-menu button {
+    background-color: rgba(195, 28, 155, 0.1);
+    border: 2px solid rgba(195, 28, 155, 0.9);
+    padding: 15px 25px; /* Botões maiores */
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 16px; /* Texto maior */
+    color: rgba(195, 28, 155, 0.9);
+    transition: all 0.3s;
+}
+
+.filter-menu button:hover {
+    background-color: rgba(195, 28, 155, 0.9);
+    color: #fff;
+}
+
+.model-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Fotos mais pequenas */
+    gap: 15px;
+}
+
+.model-card {
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.model-card img {
+    width: 100%;
+    border-radius: 10px;
+    aspect-ratio: 2 / 3; /* Proporção harmônica */
+}
+
+.model-card p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(195, 28, 155, 0.9);
+}
+
+/* Explore Section */
+.explore-section {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.explore-button {
+    font-size: 18px;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(195, 28, 155, 0.9), #ff4533);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.explore-button:hover {
+    background: linear-gradient(135deg, #ff4533, rgba(195, 28, 155, 0.9));
+}
