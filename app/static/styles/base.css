@@ -12,8 +12,7 @@ main {
   background-color: white;
   font-size: 16px;
   line-height: 1.5;
-  margin-left: 250px;
-  padding: 25px 50px;
+  padding: 25px 100px;
 }
 
 /* Sidebar Styles */
@@ -110,7 +109,6 @@ main {
   padding-left: 100px;
   text-decoration: none;
   transition: text-shadow 0.3s ease;
-  
 }
 
 .site-title a:hover {
@@ -154,7 +152,6 @@ main {
   width: 500px;
   transform: translate(175px);
 }
-
 
 .search-bar input {
   padding: 5px 40px 5px 10px;
@@ -282,12 +279,17 @@ main {
   transition: opacity 0.3s ease, visibility 0s 0.3s;
 }
 
+.profile-dropdown-unlogged a {
+  text-decoration: none;
+}
+
 .header-buttons .profile:hover + .profile-dropdown-unlogged,
 .header-buttons .profile-dropdown-unlogged:hover {
   display: block;
 }
 
-.profile-dropdown-unlogged .login-button {
+.profile-dropdown-unlogged .login-button,
+.profile-dropdown-unlogged .register-button {
   padding: 10px 20px;
   width: 88%;
   background-color: rgb(230, 230, 230);
@@ -298,11 +300,44 @@ main {
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-align: left;
+  display: flex; /* Ensure icons and text are aligned horizontally */
+  align-items: center; /* Vertically center the content */
 }
 
-.profile-dropdown-unlogged .login-button:hover {
+.profile-dropdown-unlogged .login-button i,
+.profile-dropdown-unlogged .register-button i {
+  margin-right: 8px; /* Space between the icon and the text */
+}
+
+.profile-dropdown-unlogged .login-button:hover,
+.profile-dropdown-unlogged .register-button:hover {
   background-color: #f1f1f1;
 }
+
+
+.profile-dropdown-unlogged .logout-button {
+  padding: 10px 20px;
+  width: 88%;
+  background-color: rgb(230, 230, 230);
+  color: black;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: left;
+  display: flex; /* Ensure icons and text are aligned horizontally */
+  align-items: center; /* Vertically center the content */
+}
+
+.profile-dropdown-unlogged .logout-button i {
+  margin-right: 8px; /* Space between the icon and the text */
+}
+
+.profile-dropdown-unlogged .logout-button:hover {
+  background-color: #f1f1f1;
+}
+
 
 /* Footer Styles */
 .footer {
@@ -362,9 +397,32 @@ main {
   color: #c31c9b;
 }
 
-
 .footer-links a:active {
   color: #c31c9b;
+}
+
+/* Dark Mode Button */
+.toggle-darkmode {
+  position: fixed;
+  bottom: 20px;  /* Adjust position from the top */
+  right: 20px; /* Adjust position from the right */
+  background-color: #333;
+  color: white;
+  border: none;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-darkmode:hover {
+  background-color: #575757;
 }
 
 /* Media Queries (Responsive Styles) */
@@ -400,4 +458,3 @@ main {
     width: 100%;
   }
 }
-

@@ -1,0 +1,220 @@
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212; /* Dark background */
+    color: white;
+    transition: none; /* Remove the fade transition */
+}
+
+body.dark-mode main {
+    background-color: #1e1e1e; /* Slightly lighter dark background */
+    color: white;
+}
+
+/* Sidebar in Dark Mode */
+body.dark-mode .sidebar {
+    background-color: #2c2c2c; /* Dark grey sidebar */
+}
+
+body.dark-mode .sidebar ul li a {
+    color: white; /* Sidebar links in white */
+}
+
+body.dark-mode .sidebar ul li a:hover {
+    background-color: #575757; /* Darker hover effect */
+}
+
+/* Header in Dark Mode */
+body.dark-mode .header {
+    background-color: #e91e63; /* Bright pink header */
+}
+
+/* Site Title Glow in Dark Mode */
+body.dark-mode .site-title a {
+    color: white;
+    text-shadow: none; /* Remove the glow by default */
+}
+
+body.dark-mode .site-title a:hover {
+    text-shadow:
+        5px 5px 8px rgb(0, 0, 0),
+        -5px -5px 8px rgba(233, 30, 99, 1),
+        5px -5px 8px rgba(233, 30, 99, 1),
+        -5px 5px 8px rgba(233, 30, 99, 1),
+        6px 6px 12px rgba(233, 30, 99, 0.9),
+        -6px -6px 12px rgba(233, 30, 99, 0.9); /* Glow effect only when hovering */
+}
+
+/* Footer in Dark Mode */
+body.dark-mode .footer {
+    background-color: #1a1a1a; /* Dark footer */
+}
+
+body.dark-mode .footer-links a {
+    color: white;
+}
+
+body.dark-mode .footer-links a:hover {
+    color: #e91e63; /* Bright pink on hover */
+}
+
+/* Catalogue Button and Header Buttons in Dark Mode */
+body.dark-mode .catalogue-button,
+body.dark-mode .header-buttons button {
+    color: white;
+    background-color: #e91e63; /* Bright pink buttons */
+}
+
+body.dark-mode .catalogue-button:hover,
+body.dark-mode .header-buttons button:hover {
+    background-color: #c2185b; /* Slightly darker pink on hover */
+}
+
+/* Search Bar in Dark Mode */
+body.dark-mode .search-bar input {
+    background-color: #333; /* Dark background for input */
+    color: white; /* Text color */
+    border: 1px solid #555; /* Subtle border */
+}
+
+body.dark-mode .search-bar input:focus {
+    border-color: #e91e63; /* Bright pink border on focus */
+}
+
+/* Dark Mode Styles for Search Bar Suggestions */
+body.dark-mode .search-bar-suggestions {
+    display: none;
+    color: white; /* White text for dark mode */
+    background-color: #333; /* Dark background for suggestions */
+    top: 100%;
+    left: 0;
+    position: absolute;
+    width: 625px;
+    border: 1px solid #555; /* Darker border for dark mode */
+    z-index: 1;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+body.dark-mode .search-bar-suggestions p {
+    margin: 0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+body.dark-mode .search-bar-suggestions p:hover {
+    background-color: #575757; /* Darker hover background */
+}
+
+/* Dark Mode Focus on Search Input */
+body.dark-mode #searchInput:focus {
+    border-color: #e91e63; /* Bright pink border on focus */
+}
+
+/* Profile Dropdown (Unlogged) in Dark Mode */
+body.dark-mode .profile-dropdown-unlogged {
+    background-color: #333; /* Dark grey */
+    color: white;
+}
+
+body.dark-mode .profile-dropdown-unlogged .login-button,
+body.dark-mode .profile-dropdown-unlogged .register-button {
+    background-color: #e91e63; /* Bright pink buttons */
+    color: white;
+    border-radius: 5px;
+}
+
+body.dark-mode .profile-dropdown-unlogged .login-button:hover,
+body.dark-mode .profile-dropdown-unlogged .register-button:hover {
+    background-color: #c2185b; /* Slightly darker pink on hover */
+}
+
+/* Cart Dropdown in Dark Mode */
+body.dark-mode .cart-dropdown {
+    background-color: #333; /* Dark background */
+    color: white;
+}
+
+body.dark-mode .cart-dropdown .cart-page-button {
+    background-color: #e91e63; /* Bright pink cart button */
+    color: white;
+}
+
+body.dark-mode .cart-dropdown .cart-page-button:hover {
+    background-color: #c2185b; /* Slightly darker pink for hover effect */
+}
+
+/* Footer Social Icons in Dark Mode */
+body.dark-mode .social-icon {
+    color: white; /* White icons in dark mode */
+}
+
+body.dark-mode .social-icon:hover {
+    color: #e91e63; /* Bright pink icons on hover */
+}
+
+body.dark-mode .social-icon:active {
+    color: #c2185b; /* Slightly darker pink on active */
+}
+
+/* Dark Mode Styling */
+body.dark-mode .login {
+    background-color: #181818; /* Dark background for login form */
+    transition: none;
+}
+
+/* Dark Mode for Card */
+body.dark-mode .card {
+    background-color: #2b2b2b; /* Dark card background */
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1); /* Lighter shadow for dark mode */
+    transition: none;
+}
+
+/* Dark Mode for Card Header */
+body.dark-mode .card-header h2 {
+    color: #fff; /* White text in dark mode */
+    transition: none;
+}
+
+/* Dark Mode for Card Labels */
+body.dark-mode .card-content-area label {
+    color: #bbb; /* Light color for labels in dark mode */
+    transition: none;
+}
+
+/* Dark Mode for Card Inputs */
+body.dark-mode .card-content-area input {
+    background-color: #333; /* Dark input background */
+    color: white; /* Light text inside input */
+    border-color: #555; /* Darker border color for inputs */
+    transition: none;
+}
+
+/* Dark Mode for Focused Input */
+body.dark-mode .card-content-area input:focus {
+    outline-color: #e91e63; /* Bright pink outline when focused */
+    border-color: #e91e63; /* Bright pink border when focused */
+}
+
+/* Dark Mode for Submit Button */
+body.dark-mode .card-footer input.submit {
+    background-color: #e91e63; /* Bright pink for submit button */
+    transition: none;
+}
+
+/* Dark Mode Hover Effect for Submit Button */
+body.dark-mode .card-footer input.submit:hover {
+    background-color: #c2185b; /* Slightly darker pink on hover in dark mode */
+}
+
+/* Dark Mode for Forgotten Password Link */
+body.dark-mode .card-footer .recuperar_senha {
+    color: #bbb; /* Light color for link in dark mode */
+}
+
+/* Dark Mode for Error Message */
+body.dark-mode #errorMessage {
+    color: #ff8c8c; /* Light red for error message */
+}
+
+body.dark-mode .register {
+    background-color: #181818;
+}

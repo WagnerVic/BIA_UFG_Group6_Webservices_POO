@@ -1,129 +1,132 @@
 /* General Reset */
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-  }
-  
-  /* Login Form Styling */
-  .login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-  }
-  
-  /* Card Styling */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Login Form Styling */
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+  transition: background-color 0.3s ease;
+}
+
+/* Card Styling */
+.card {
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 400px;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Card Header */
+.card-header h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+/* Card Content */
+.card-content {
+  margin-bottom: 20px;
+}
+
+.card-content-area {
+  margin-bottom: 15px;
+}
+
+.card-content-area label {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+/* Card Input Styling */
+.card-content-area input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.card-content-area input:focus {
+  outline-color: #dd70cb;
+  border-color: #dd70cb;
+}
+
+/* Submit Button */
+.card-footer {
+  text-align: center;
+}
+
+.card-footer input.submit {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  background-color: #dd70cb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover Effect for Submit Button */
+.card-footer input.submit:hover {
+  background-color: #c31c9b;
+}
+
+/* Forgotten Password Link */
+.card-footer .recuperar_senha {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  color: #777;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Error Message */
+#errorMessage {
+  text-align: center;
+  font-size: 14px;
+  color: red;
+  margin-top: 10px;
+  display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
   .card {
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    width: 400px;
-    padding: 20px;
-    box-sizing: border-box;
+    width: 90%;
+    padding: 15px;
   }
-  
+
   .card-header h2 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 20px;
   }
-  
-  /* Card Content */
-  .card-content {
-    margin-bottom: 20px;
-  }
-  
-  .card-content-area {
-    margin-bottom: 15px;
-  }
-  
-  .card-content-area label {
-    display: block;
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
+
   .card-content-area input {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    margin-top: 5px;
+    font-size: 14px;
   }
-  
-  .card-content-area input:focus {
-    outline-color: #dd70cb;
-    border-color: #dd70cb;
-  }
-  
-  /* Submit Button */
-  .card-footer {
-    text-align: center;
-  }
-  
+
   .card-footer input.submit {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    background-color: #dd70cb;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
   }
-  
-  .card-footer input.submit:hover {
-    background-color: #c31c9b;
-  }
-  
-  /* Forgotten Password Link */
-  .card-footer .recuperar_senha {
-    display: block;
-    margin-top: 10px;
-    text-align: center;
-    color: #777;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  
-  .card-footer .recuperar_senha:hover {
-    text-decoration: underline;
-  }
-  
-  /* Error Message */
-  #errorMessage {
-    text-align: center;
-    font-size: 14px;
-    color: red;
-    margin-top: 10px;
-    display: none;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .card {
-      width: 90%;
-      padding: 15px;
-    }
-  
-    .card-header h2 {
-      font-size: 20px;
-    }
-  
-    .card-content-area input {
-      font-size: 14px;
-    }
-  
-    .card-footer input.submit {
-      font-size: 16px;
-    }
-  }
-  
+}

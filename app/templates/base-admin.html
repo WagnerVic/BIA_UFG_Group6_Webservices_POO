@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="static/styles/login.css">
     <link rel="stylesheet" href="static/styles/register.css">
     <link rel="stylesheet" href="static/styles/darkmode.css">
-    <link rel="stylesheet" href="static/styles/cart.css">
     <!-- Include Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -34,38 +33,15 @@
   
         <div class="header-buttons">
             <!-- Favorites button with heart icon -->
-            <button class="favorites">
-                <i class="fa fa-heart" style="font-size:24px"></i>
-            </button>
-            <!-- Cart button with shopping cart icon -->
-            <button class="cart">
-                <i class="fa fa-shopping-cart" style="font-size:24px"></i>
-            </button>
-            <div class="cart-dropdown">
-                <p>Conteúdo do carrinho</p>
-                <a href="#">
-                    <button class="cart-page-button">Go to cart</button>
-                </a>
-                <p>
-                    Conteúdo do carrinho
-                </p>
-            <a href="/cart"> 
-                <button class="cart-page-button">Go to cart</button> 
-            </a>   
-            </div>
+            <button class="Products">Products</button>
             <!-- Profile button with user icon -->
             <button class="profile">
                 <i class="fa fa-user" style="font-size:24px"></i>
             </button>
             <div class="profile-dropdown-unlogged" id="profile-dropdown-unlogged">
-                <a href="/login">
-                    <button class="login-button">
-                        <i class="fa fa-sign-in" style="margin-right: 8px;"></i>Login
-                    </button>
-                </a>
-                <a href="/register">
-                    <button class="register-button">
-                        <i class="fa fa-user-plus" style="margin-right: 8px;"></i>Register
+                <a href="/">
+                    <button class="logout-button">
+                        <i class="fa fa-sign-out" style="margin-right: 8px;"></i>Logout
                     </button>
                 </a>
             </div>

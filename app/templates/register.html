@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}Login - Empresa Confiável{% endblock %}
+{% block title %}Criar Conta - Empresa Confiável{% endblock %}
 
 {% block content %}
 
-<div class="login">
-    <form class="card" id="loginForm">
+<div class="register">
+    <form class="card" id="registerForm" method="POST" action="/register">
         <div class="card-header">
-            <h2>Login</h2>
+            <h2>Criar Conta</h2>
         </div>
 
         <div class="card-content">
             <div class="card-content-area">
-                <label for="usuario">Usuário</label>
+                <label for="username">Usuário</label>
                 <input type="text" id="username" name="username" autocomplete="off" required>
             </div>
 
@@ -20,16 +20,21 @@
                 <label for="password">Senha</label>
                 <input type="password" id="password" name="password" autocomplete="off" required>
             </div>
+
+            <div class="card-content-area">
+                <label for="confirmPassword">Confirmar Senha</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="off" required>
+            </div>
         </div>
 
         <div class="card-footer">
-            <input type="submit" value="Login" class="submit">
-            <a href="/register" id="showRegisterForm" class="recuperar_senha">Criar conta</a>
+            <input type="submit" value="Criar Conta" class="submit">
+            <a href="/login" id="showLoginForm" class="recuperar_senha">Já tem uma conta? Faça login</a>
         </div>
 
         <!-- To show error message -->
         <div id="errorMessage" style="color: red; display: none;">
-            Nome de usuário ou senha inválidos.
+            As senhas não coincidem ou o nome de usuário já está em uso.
         </div>
     </form>
 </div>
