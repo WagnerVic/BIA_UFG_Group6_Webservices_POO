@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Catálogo de Produtos{% endblock %}
+
+{% block content %}
+
+<main class="catalog">
+    <h1>Catálogo de Produtos</h1>
+    
+    <div class="catalog-grid">
+        {% for product in PRODUCTS %}
+        <div class="catalog-item">
+            <!-- Product Image -->
+            <img src="{{ product.image }}" alt="{{ product.name }}" class="product-img">
+            
+            <!-- Product Name -->
+            <h2>{{ product.name }}</h2>
+            
+            <!-- Product Price -->
+            <p class="product-price">R$ {{ '%.2f' | format(product.price) }}</p>
+
+            <!-- Sizes List as Circular Balls -->
+            <div class="product-sizes">
+                <h4>Tamanhos: 
+                    {% for size in product.sizes %}
+                        <span class="size-ball">{{ size }}</span>{% if not loop.last %} {% endif %}
+                    {% endfor %}
+                </h4>
+            </div>
+            
+            <!-- "See Details" Button -->
+            <a href="{{ url_for('product', product_id=product.id) }}">
+            <button class="see-details-button" onclick="viewDetails('{{ product.id }}')">Ver Detalhes</button>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+{% endblock %}

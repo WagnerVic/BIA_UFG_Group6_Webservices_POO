@@ -218,3 +218,236 @@ body.dark-mode #errorMessage {
 body.dark-mode .register {
     background-color: #181818;
 }
+
+/* Dark Mode for the Product Page */
+body.dark-mode .product-page {
+    background-color: #181818; /* Dark background for product page */
+    transition: none; /* Disable transition */
+}
+
+/* Dark Mode for the Product Container */
+body.dark-mode .product-container {
+    background-color: #2b2b2b; /* Dark background for product container */
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1); /* Lighter shadow for dark mode */
+    transition: none; /* Disable transition */
+}
+
+/* Dark Mode for Product Title */
+body.dark-mode .product-title {
+    color: #fff; /* White text for product title in dark mode */
+    transition: none; /* Disable transition */
+}
+
+/* Dark Mode for Product Description */
+body.dark-mode .product-description {
+    color: #bbb; /* Lighter text color for product description in dark mode */
+    transition: none; /* Disable transition */
+}
+
+/* Dark Mode for Product Price */
+body.dark-mode .product-price {
+    color: #e91e63; /* Bright pink for price in dark mode */
+    transition: none; /* Disable transition */
+}
+
+/* Dark Mode for Product Quantity Selector */
+body.dark-mode .product-quantity label {
+    color: #ddd; /* Lighter text color for quantity label in dark mode */
+    transition: none; /* Disable transition */
+}
+
+body.dark-mode .product-quantity input {
+    background-color: #333; /* Dark background for input */
+    color: white; /* Light text color inside the input */
+    border-color: #555; /* Darker border for input */
+    transition: none; /* Disable transition */
+}
+
+body.dark-mode .product-quantity input:focus {
+    outline-color: #e91e63; /* Bright pink outline on focus */
+    border-color: #e91e63; /* Bright pink border on focus */
+    transition: none; /* Disable transition */
+}
+
+/* Dark Mode for the Add to Cart Button */
+body.dark-mode .add-to-cart-button {
+    background-color: #e91e63; /* Bright pink for add-to-cart button */
+    color: white; /* White text on button */
+    transition: none; /* Disable transition */
+}
+
+body.dark-mode .add-to-cart-button:hover {
+    background-color: #c2185b; /* Slightly darker pink on hover */
+    transition: none; /* Disable transition */
+}
+
+/* Dark Mode for Product Image Shadow */
+body.dark-mode .product-img {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1); /* Lighter shadow for dark mode */
+    transition: none; /* Disable transition */
+}
+
+/* Dark Mode for Product Size Selector */
+body.dark-mode .product-size label {
+    color: #ddd; /* Lighter text color for size label in dark mode */
+}
+
+body.dark-mode .product-size select {
+    background-color: #333; /* Dark background for select */
+    color: white; /* Light text color inside the select */
+    border-color: #555; /* Darker border for select */
+}
+
+body.dark-mode .product-size select:focus {
+    outline-color: #e91e63; /* Bright pink outline on focus */
+    border-color: #e91e63; /* Bright pink border on focus */
+}
+
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Cabeçalho */
+.header {
+    background-color: #ff00a1;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header .menu a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.header .menu a.active {
+    text-decoration: underline;
+}
+
+/* Seção do catálogo */
+.catalog {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.catalog h1 {
+    text-align: center;
+    color: #ff00a1;
+}
+
+.catalog-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: transform 0.2s;
+}
+
+.catalog-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+.add-to-cart-button {
+    background-color: #ff00a1;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-to-cart-button:hover {
+    background-color: #e00090;
+}
+
+.product-quantity {
+    margin: 10px 0;
+}
+
+.product-quantity input {
+    width: 50px;
+    padding: 5px;
+}
+
+/* Dark Mode for General Body */
+body.dark-mode {
+    background-color: #121212; /* Dark background */
+    color: white;
+}
+
+/* Dark Mode for Header */
+body.dark-mode .header {
+    background-color: #e91e63; /* Bright pink header */
+}
+
+body.dark-mode .header .menu a {
+    color: white; /* White text for menu links */
+}
+
+body.dark-mode .header .menu a.active {
+    text-decoration: underline; /* Active menu item underline */
+}
+
+/* Dark Mode for Catalog Section */
+body.dark-mode .catalog {
+    background-color: #181818; /* Dark background for catalog */
+    color: white; /* White text */
+}
+
+body.dark-mode .catalog h1 {
+    color: #e91e63; /* Bright pink header */
+}
+
+/* Dark Mode for Catalog Items */
+body.dark-mode .catalog-item {
+    background-color: #2b2b2b; /* Darker background for catalog items */
+    border: 1px solid #555; /* Darker border */
+}
+
+body.dark-mode .catalog-item:hover {
+    transform: scale(1.02); /* Slightly larger scale on hover */
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1); /* Lighter shadow for dark mode */
+}
+
+/* Dark Mode for Product Price */
+body.dark-mode .product-price {
+    color: #e91e63; /* Bright pink for product price */
+}
+
+/* Dark Mode for Add to Cart Button */
+body.dark-mode .add-to-cart-button {
+    background-color: #e91e63; /* Bright pink button */
+}
+
+body.dark-mode .add-to-cart-button:hover {
+    background-color: #c2185b; /* Darker pink on hover */
+}
+
+/* Dark Mode for Product Quantity */
+body.dark-mode .product-quantity input {
+    background-color: #333; /* Dark background for quantity input */
+    color: white; /* White text in input */
+}

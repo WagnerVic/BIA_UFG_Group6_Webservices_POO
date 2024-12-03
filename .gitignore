@@ -1,2 +1,4 @@
 *.pyc
 __pycache__/
+*.pyc
+app/__pycache__/client.cpython-312.pyc

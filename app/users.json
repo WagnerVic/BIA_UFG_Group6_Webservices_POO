@@ -13,5 +13,20 @@
         "username": "1",
         "password": "1",
         "profile": 1
+    },
+    {
+        "username": "phael",
+        "password": "1234",
+        "profile": 1
+    },
+    {
+        "username": "YOLO",
+        "password": "8",
+        "profile": 1
+    },
+    {
+        "username": "test",
+        "password": "test",
+        "profile": 1
     }
 ]

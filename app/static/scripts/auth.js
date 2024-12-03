@@ -1,26 +1,15 @@
-// Função para carregar os usuários a partir do backend (Exemplo fictício de carregamento)
+// Função para carregar os usuários a partir do backend (JSON)
 async function loadUsers() {
   try {
-    // Aqui estamos simulando a resposta do backend, já que você forneceu os dados diretamente
-    const users = [
-      { "username": "Lola", "password": "1", "profile": 2 },
-      { "username": "iAmAUser", "password": "verysafepass", "profile": 1 },
-      { "username": "1", "password": "1", "profile": 1 }
-    ];
+    const response = await fetch('/api/users');
+    if (!response.ok) {
+      throw new Error('Erro ao carregar os usuários');
+    }
+    const users = await response.json();
     return users;
   } catch (error) {
     console.error('Erro ao carregar os usuários:', error);
     return [];
-  }
-}
-
-// Função para salvar os usuários no backend (simulando a persistência)
-async function saveUsers(users) {
-  try {
-    // Simulando o envio dos dados para o backend
-    console.log("Usuários salvos:", users);
-  } catch (error) {
-    console.error('Erro ao salvar os usuários:', error);
   }
 }
 
@@ -43,14 +32,8 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     // Armazenar os dados do usuário logado no localStorage
     localStorage.setItem('loggedInUser', JSON.stringify(user));
 
-    // Definir uma constante para o usuário logado
-    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
-
-    // Exemplo de como usar o loggedInUser constante
-    console.log('Usuário logado:', loggedInUser);
-
     // Redirecionar para a página inicial ou página específica dependendo do perfil
-    if (loggedInUser.profile === 2) {
+    if (user.profile === 2) {
       window.location.href = '/admin'; // Se for admin, redireciona para uma página de administração
     } else {
       window.location.href = '/user'; // Usuário comum é redirecionado para a página inicial
@@ -90,14 +73,29 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     return;
   }
 
-  // Adicionar o novo usuário com um nível de perfil
-  const profile = 1; // Por padrão, o usuário será um 'user'
-  const newUser = { username, password, profile };
-  users.push(newUser);
+  // Criar um novo usuário
+  const newUser = { username, password, profile: 1 };  // Por padrão, o perfil é 'user'
 
-  // Salvar os usuários no backend
-  await saveUsers(users);
+  // Enviar o novo usuário para o backend
+  try {
+    const response = await fetch('/api/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    });
 
-  alert("Conta criada com sucesso!");
-  window.location.href = '/login'; // Redirecionar para a página de login
+    if (!response.ok) {
+      const error = await response.json();
+      alert(error.error); // Exibe erro se o nome de usuário já existir
+      return;
+    }
+
+    alert("Conta criada com sucesso!");
+    window.location.href = '/login'; // Redirecionar para a página de login
+  } catch (error) {
+    console.error('Erro ao registrar o usuário:', error);
+    alert('Erro ao criar a conta.');
+  }
 });
